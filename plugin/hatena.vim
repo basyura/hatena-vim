@@ -182,6 +182,9 @@ function! HatenaLogin(user)
 endfunction
 
 function! s:HatenaEdit(...) " 編集する
+    if exists('g:hatena_edit_new_tab') && g:hatena_edit_new_tab
+        tabnew
+    endif
     " ログイン
     if !exists('b:hatena_login_info')
         let hatena_login_info = s:HatenaLogin()
