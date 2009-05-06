@@ -1,9 +1,12 @@
 " HTML要素
 if exists('g:hatena_syntax_html') && g:hatena_syntax_html
+  try
     syntax include @Html syntax/html.vim
     syn clear htmlError
     syn clear htmlTagError
     syn clear htmlCommentError
+  catch
+  endtry
 endif
 
 syn match hatenaHeading         +^\*\{1,3}\(\w\+\*\)\=.\+$+         contains=hatenaHeadingName,hatenaLink
